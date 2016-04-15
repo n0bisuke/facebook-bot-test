@@ -7,6 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "@3846masa/linebot": "^0.1.1",
     "ejs": "2.3.3",
     "express": "4.13.3"
   },
