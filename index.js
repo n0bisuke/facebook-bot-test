@@ -19,26 +19,39 @@
 //
 
 
-const LineBot = require('@3846masa/linebot');
-const bot = new LineBot({
-  channelID: '1462882381',
-  channelSecret: 'f8529202cefd073d173d51dbd445b73c',
-  MID: 'u356bf0e1d9c5143a4de80e036cc9e222'
-});
+// const LineBot = require('@3846masa/linebot');
+// const bot = new LineBot({
+//   channelID: '1462882381',
+//   channelSecret: 'f8529202cefd073d173d51dbd445b73c',
+//   MID: 'u356bf0e1d9c5143a4de80e036cc9e222'
+// });
+//
+// bot.on('message', (res) => {
+//   const content = res.content;
+//   if ( content.contentType === LineBot.CONST.CONTENT_TYPE.TEXT ) {
+//     bot.postText({
+//       user: content.from,
+//       message: content.text
+//     });
+//   } else {
+//     bot.postText({
+//       user: content.from,
+//       message: 'Not text.'
+//     });
+//   }
+// });
+//
+// bot.listen(5000);
 
-bot.on('message', (res) => {
-  const content = res.content;
-  if ( content.contentType === LineBot.CONST.CONTENT_TYPE.TEXT ) {
-    bot.postText({
-      user: content.from,
-      message: content.text
-    });
-  } else {
-    bot.postText({
-      user: content.from,
-      message: 'Not text.'
-    });
+
+var express = require('express'),
+    router = express.Router();
+
+router.get('/', function(req, res, next) {
+  if (req.query['hub.verify_token'] === '<validation_token>') {
+    res.send(req.query['hub.challenge']);
   }
+  res.send('Error, wrong validation token');
 });
 
-bot.listen(5000);
+module.exports = router;
