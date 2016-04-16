@@ -53,6 +53,7 @@ router.post('/', function(req, res, next) {
       text = event.message.text;
 
       // アレコレしたいことをどうぞ
+      console.log('ほげほげ',text,sender);
       sendTextMessage(sender, text.substring(0, 200));
     }
   }
