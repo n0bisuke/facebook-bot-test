@@ -13,7 +13,7 @@
 var express = require('express'),
     request = require('request'),
     router = express.Router(),
-    token = "<your-access-token>";
+    token = "CAALcKQuXFFkBAKUNRBTFTBXq2FtcB6DO4HyooIgAogNpZA4TV81WZCyRAMiJLHoW4rcf6TtdfeDYsuXZBU6KRwzo4b5rhcxndiJZArqfisSOlZAeDvSkZAIwt6iWcQz0lRRMzPSia3HejFT54MRbQydMH0BZCWtlnirQOj3uHNqaBejp51sQR2JejA5EJAJXOEZD";
 
 function sendTextMessage(sender, text) {
   var messageData = {
